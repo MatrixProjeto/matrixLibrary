@@ -22,15 +22,28 @@ class Matrix ():
                 self.body[line][columm] = self.element
     
     def pDiagonal (self):
-        diagonal_principal = []
-        for i in range(len(self.body)):
-            diagonal_principal.append(self.body[i][i])
-        return diagonal_principal
+        if self.columms == self.lines:
+            diagonal_principal = []
+            for i in range(len(self.body)):
+                diagonal_principal.append(self.body[i][i])
+            return diagonal_principal
+        else:
+            return "matriz não quadradas não possuem diagonal principal"
             
     def xDiagonal (self, mult):
-        for i in range(len(self.body)):
-            self.body[i][i] *= mult
+        if self.lines == self.columms:
+            for i in range(len(self.body)):
+                self.body[i][i] *= mult
+        else:
+            return "matriz não quadradas não possuem diagonal principal"
 
     def transpoose (self):
         mat_transpoose = list(map(lambda *i: [j for j in i], *self.body))
         return mat_transpoose
+
+
+    def sum (self, sumMatrix):
+        pass
+
+    def mult (self, sumMatrix):
+        pass

@@ -1,11 +1,13 @@
 
 from matrix import Matrix
 
-Teste = Matrix(2,2)
+Teste = Matrix(3,2)
 
 Teste.fill()
 print(Teste.show())
 print(Teste.transpoose())
 print(Teste.pDiagonal())
-Teste.xDiagonal(3)
+print(Teste.xDiagonal(3))
 print(Teste.show())
+print (Teste.columms)
+print (Teste.lines)
