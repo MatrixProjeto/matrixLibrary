@@ -13,16 +13,24 @@ class Matrix ():
             self.body.append([" "] * self.columms)
 
     def show (self):
-        return self.body
+        return print(self.body)
+
+    def isSquare(self):
+        if (self.lines == self.columms) or (self.columms == self.lines):
+            return True
+        else:
+            return False
+
 
     def fill (self):
         for line in range(self.lines):
             for columm in range(self.columms):
                 self.element = int(input("Digite um valor: "))
                 self.body[line][columm] = self.element
+         
     
     def pDiagonal (self):
-        if self.columms == self.lines:
+        if self.isSquare():
             diagonal_principal = []
             for i in range(len(self.body)):
                 diagonal_principal.append(self.body[i][i])
@@ -31,7 +39,7 @@ class Matrix ():
             return "matriz não quadradas não possuem diagonal principal"
             
     def xDiagonal (self, mult):
-        if self.lines == self.columms:
+        if self.isSquare():
             for i in range(len(self.body)):
                 self.body[i][i] *= mult
         else:
@@ -39,11 +47,12 @@ class Matrix ():
 
     def transpoose (self):
         mat_transpoose = list(map(lambda *i: [j for j in i], *self.body))
-        return mat_transpoose
+        self.body = mat_transpoose
+        return self.body
 
 
     def sum (self, sumMatrix):
         pass
 
-    def mult (self, sumMatrix):
+    def mult (self, multMatrix):
         pass
