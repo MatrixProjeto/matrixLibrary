@@ -1,5 +1,7 @@
 class Matrix ():
     body = []
+    lines = 0
+    columms = 0
 
     def __init__(self, lines, columms):
         self.lines = lines
@@ -11,8 +13,7 @@ class Matrix ():
             self.body.append([" "] * self.columms)
 
     def show (self):
-        for j in self.body:
-            return j
+        return self.body
 
     def fill (self):
         for line in range(self.lines):
