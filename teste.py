@@ -1,8 +1,9 @@
-
+from typing import Union
 from matrix import Matrix
 
-Teste = Matrix(3,2)
+Paulin = Matrix (3,3)
+Davi = Matrix (2,2)
+Rodrigo = Matrix (4,4)
 
-Teste.fill()
-print(Teste.isSquare())
-print(Teste.pDiagonal())
+Davi.show()
+Paulin.show()
