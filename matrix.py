@@ -1,7 +1,5 @@
 class Matrix(object):
 
-    body = []
-
     def __init__(self, lines, columms):
         self.lines = lines
         self.columms = columms
