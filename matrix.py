@@ -6,10 +6,10 @@ class Matrix(object):
         self.body = self.gerar(lines, columms)
 
     def gerar(self,lines, columms):
-        m = []
+        gerada = []
         for _ in range(lines):
-            m.append([" "] * columms)
-        return m
+            gerada.append([" "] * columms)
+        return gerada
 
     def show(self):
         print(self.body)
@@ -23,7 +23,7 @@ class Matrix(object):
     def fill(self):
         for line in range(self.lines):
             for columm in range(self.columms):
-                self.element = int(input("Digite um valor: "))
+                self.element = int(input(f"Digite um valor na posição [{line}][{columm}]: ".format([line], [columm])))
                 self.body[line][columm] = self.element
 
     def pDiagonal(self):
@@ -37,10 +37,16 @@ class Matrix(object):
 
     def xDiagonal(self, mult):
         if self.isSquare():
-            for i in range(len(self.body)):
-                self.body[i][i] *= mult
+            mult = [i * mult for i in self.pDiagonal()]
+            return mult 
         else:
             return "matriz não quadradas não possuem diagonal principal"
+
+    def feature(self):
+        if self.isSquare():
+            return sum(self.pDiagonal())
+        else:
+            return "matriz não quadradas não possuem traço"
 
     def transpoose(self):
         mat_transpoose = list(map(lambda *i: [j for j in i], *self.body))
