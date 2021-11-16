@@ -107,5 +107,7 @@ class Matrix(object):
                        value += self.body[lin][i] * b_mat.body[i][col]
                     c_mat.body[lin][col] = value
             return c_mat.body
+        else:
+            return "Matrizes imcopatíveis para multiplicar"
 
             
