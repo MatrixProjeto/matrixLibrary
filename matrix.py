@@ -4,6 +4,9 @@ class Matrix(object):
     columms = 0
     body = []
 
+    def __init__(self):
+        pass 
+    
     def __init__(self, lines, columms):
         self.lines = lines
         self.columms = columms
@@ -94,5 +97,15 @@ class Matrix(object):
         else:
             return "Matrizes de tamanho diferentes não podem ser somadas"
 
-    def mult(self, multMatrix):
-        pass
+    def mult(self,b_mat):
+        c_mat = Matrix (self.lines, b_mat.columms)
+        if self.lines == b_mat.columms:
+            for lin in range(self.lines):
+                for col in range(b_mat.columms):
+                    value = 0
+                    for i in range(self.columms):
+                       value += self.body[lin][i] * b_mat.body[i][col]
+                    c_mat.body[lin][col] = value
+            return c_mat.body
+
+            
