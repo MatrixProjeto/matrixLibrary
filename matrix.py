@@ -3,9 +3,6 @@ class Matrix(object):
     lines = 0
     columms = 0
     body = []
-
-    def __init__(self):
-        pass 
     
     def __init__(self, lines, columms):
         self.lines = lines
