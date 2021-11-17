@@ -3,7 +3,7 @@ class Matrix(object):
     lines = 0
     columms = 0
     body = []
-    
+
     def __init__(self, lines, columms):
         self.lines = lines
         self.columms = columms
@@ -75,7 +75,7 @@ class Matrix(object):
     def transpoose(self):
         mat_transpoose = list(map(lambda *i: [j for j in i], *self.body))
         self.body = mat_transpoose
-        return self.body
+        return self
 
     def det(self):
         if self.isSquare():
@@ -94,17 +94,15 @@ class Matrix(object):
         else:
             return "Matrizes de tamanho diferentes não podem ser somadas"
 
-    def mult(self,b_mat):
-        c_mat = Matrix (self.lines, b_mat.columms)
-        if self.lines == b_mat.columms:
+    def mult(self, b_mat):
+        if self.columms == b_mat.lines:
+            c_mat = Matrix(self.lines, b_mat.columms)
             for lin in range(self.lines):
                 for col in range(b_mat.columms):
                     value = 0
                     for i in range(self.columms):
-                       value += self.body[lin][i] * b_mat.body[i][col]
+                        value += self.body[lin][i] * b_mat.body[i][col]
                     c_mat.body[lin][col] = value
-            return c_mat.body
+            return c_mat.show()
         else:
             return "Matrizes imcopatíveis para multiplicar"
-
-            
