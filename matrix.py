@@ -38,6 +38,7 @@ class Matrix(object):
             diagonal_principal = []
             for i in range(len(self.body)):
                 diagonal_principal.append(self.body[i][i])
+            print (diagonal_principal)
             return diagonal_principal
         else:
             return "matriz não quadradas não possuem diagonal principal"
@@ -49,6 +50,7 @@ class Matrix(object):
                 for j in range(self.columms):
                     if i == self.columms - 1 - j:
                         diagonal_secundaria.append(self.body[i][j])
+            print(diagonal_secundaria)
             return diagonal_secundaria
         else:
             return "matriz não quadradas não possuem diagonal secundária"
@@ -90,7 +92,8 @@ class Matrix(object):
             for i in range(self.lines):
                 for j in range(self.columms):
                     Soma.body[i][j] = self.body[i][j] + sumMatrix.body[i][j]
-            return Soma.body
+            Soma.show()
+            return Soma
         else:
             return "Matrizes de tamanho diferentes não podem ser somadas"
 
@@ -103,6 +106,7 @@ class Matrix(object):
                     for i in range(self.columms):
                         value += self.body[lin][i] * b_mat.body[i][col]
                     c_mat.body[lin][col] = value
-            return c_mat.show()
+            c_mat.show()
+            return c_mat
         else:
             return "Matrizes imcopatíveis para multiplicar"

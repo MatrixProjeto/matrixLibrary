@@ -1,10 +1,11 @@
 from matrix import Matrix
 
 A = Matrix (2, 2)
-B = Matrix (2, 3)
+B = Matrix (2, 2)
 
 A.fill()
 B.fill()
 
-A.mult(B)
+C = A.sum(B)
+C.pDiagonal()
 
