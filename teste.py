@@ -5,7 +5,5 @@ B = Matrix (2, 2)
 
 A.fill()
 B.fill()
-
 C = A.sum(B)
-C.pDiagonal()
 
